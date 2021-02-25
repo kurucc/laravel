@@ -28,7 +28,7 @@
                 <th>Moszat</th>
                 <th>Laktóz</th>
                 <th>Megcsinált</th>
-                <th id="mikor" hidden>Mikor</th>
+                <th>Mikor</th>
             </tr>
             <form action="/" method="POST">
             @csrf
