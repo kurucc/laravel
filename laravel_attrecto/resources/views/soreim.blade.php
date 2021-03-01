@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/jpg" href="{{ asset('icon/beer.jpg') }}">
-    <link rel="stylesheet" href="{{ asset('css/soreim.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fooldal.css') }}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>{{ config('app.name') }}</title>
 </head>
 <body>
 
     @if (Auth::check())
-    <span class="fooldalspan"><a href="/logout">Kijelentkezés</a></span>
-    <h1>Üdv itt, {{ $name }}</h1>
-    <h2>Adj hozzá elkészített/elkészítendő sört!</h2>
-
+    <span hidden class="fooldalspan rejtve4"><a href="/logout">Kijelentkezés</a></span>
+    <h1 id="rejtve1" hidden>Üdv itt, <span class="log">{{ $name }}</span></h1>
+    <h2 id="rejtve2" hidden>Adj hozzá elkészített/elkészítendő sört!</h2>
+    <div id="rejtve3" hidden>
     <fieldset id="sorok">
         <legend>Söreim</legend>
-        <table id="tabla">
+        <table  id="tabla">
             <tr>
                 <th><a href="{{ url('tipusok') }}">Típus</a></th>
                 <th><a href="{{ url('malatak') }}">Maláta</a></th>
@@ -28,7 +30,7 @@
                 <th>Moszat</th>
                 <th>Laktóz</th>
                 <th>Megcsinált</th>
-                <th>Mikor</th>
+                <th hidden id="mikor">Mikor</th>
             </tr>
             <form action="/" method="POST">
             @csrf
@@ -46,6 +48,7 @@
                         <option value="Wheat Beer">Wheat Beer</option>
                         <option value="Porter">Porter</option>
                         <option value="Smoked Beer">Smoked Beer</option> 
+                        <option value="Új">Egyéb típus megadása</option>
                     </select>
                 </td>
                 <td>
@@ -59,6 +62,7 @@
                         <option value="Carahell">Carahell</option>
                         <option value="CaraAmber">CaraAmber</option>
                         <option value="Pörkölt">Pörkölt</option>
+                        <option value="Új">Egyéb maláta megadása</option>
                     </select>
                 </td>
                 <td>
@@ -70,6 +74,7 @@
                         <option value="Cascade">Cascade</option>
                         <option value="Centennial">Centennial</option>
                         <option value="Styrian Golding">Styrian Golding</option>
+                        <option value="Új">Egyéb komló megadása</option>
                     </select>
                 </td>
                 <td>
@@ -78,6 +83,7 @@
                         <option value="Ale">Ale</option>
                         <option value="Lager">Lager</option>
                         <option value="Lambic">Lambic</option>
+                        <option value="Új">Egyéb élesztő megadása</option>
                     </select>
                 </td>
                 <td>
@@ -108,21 +114,21 @@
                         <option value="Nem">Nem</option>
                     </select>
                 </td>
-                <td><input type="date" name="mikor"></td>
+                <td hidden id="datum"><input type="date" name="mikor" id="idopont"></td>
             </tr>
         </table>
-        
-    </fieldset> 
-        <span id="eddigispan"><a href="eddigi-sorok" id="eddigi">Eddigi söreim</a></span>
         <br>
-        <input type="submit" value="Mentés" name="submit">
+        <input type="submit" value="Mentés" name="submit" id="mentesfooldal">
+    </fieldset>    
+        <br>
     </form>
-
+    </div>
+    <span hidden class="rejtve4" id="eddigispan"><a id="eddigi" href="eddigi-sorok" >Eddigi söreim</a></span>
     @else
-    <h1>Üdv! </h1>
-    <h2>Sör hozzáadásához <a id="log" href="{{ route('login') }}">jelentkezz</a> be vagy <a id="log" href="{{ route('register') }}">regisztrálj</a>!</h2>
+    <h1 class="rejtve" hidden>Üdv! </h1>
+    <h2 class="rejtve" hidden>Sör hozzáadásához  <a class="log" href="{{ route('login') }}">jelentkezz</a> be vagy <a class="log" href="{{ route('register') }}">regisztrálj</a>!</h2>
     @endif
     
-
+    <script src="{{ asset('js/fooldal.js')}}"></script>
 </body>
 </html>

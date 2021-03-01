@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/jpg" href="{{ asset('icon/beer.jpg') }}">
-    <link rel="stylesheet" href="{{ asset('css/soreim.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/tkme.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <title>{{ config('app.name') }}</title>
 </head>
 <body>
-    <span class="fooldalspan"><a href="{{ url('/') }}">Főoldal</a></span>
+    <span hidden class="fooldalspan"><a href="{{ url('/') }}">Főoldal</a></span>
+    <div hidden>
     <fieldset id="sorok">
         <legend>Maláták</legend>
         <table id="tabla">
@@ -59,6 +61,9 @@
                 <td class="sortipusok"><i>A Weyermann Pörkölt Árpa  egy malátázatlan pörkölt árpa, ami teljes, intenzív pörkölt aromát kölcsönöz a sörnek.</i></td>
             </tr>
         </table>   
-    </fieldset> <br>
+    </fieldset>
+</div> <br>
+
+<script src="{{ asset('js/malatak.js')}}"></script>
 </body>
 </html>

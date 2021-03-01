@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/jpg" href="{{ asset('icon/beer.jpg') }}">
-    <link rel="stylesheet" href="{{ asset('css/soreim.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tkme.css') }}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>{{ config('app.name') }}</title>
+
 </head>
 <body>
-    <span class="fooldalspan"><a href="{{ url('/') }}">Főoldal</a></span>
+    <span hidden class="fooldalspan"><a href="{{ url('/') }}">Főoldal</a></span>
+<div hidden>
     <fieldset id="sorok">
         <legend>Típusok</legend>
         <table id="tabla">
@@ -66,9 +70,12 @@
 
             <tr class="sortipusokrows">
                 <td class="sortipus sortipusok">Smoked Beer</td>
-                <td class="sortipusok"><i>Ezek a füstölt sörök egyaránt lehetnek Ale-ek és Lagerek is. Füstös aromájukat, ízüket a kemencében szárított árpamalátától kapják</i></td>
+                <td class="sortipusok"><i>Ezek a füstölt sörök egyaránt lehetnek Ale-ek és Lagerek is. Füstös aromájukat, ízüket a kemencében szárított árpamalátától kapják.</i></td>
             </tr>
         </table>   
-    </fieldset> <br>
+    </fieldset>
+</div> <br>
+
+<script src="{{ asset('js/tipusok.js')}}"></script>
 </body>
 </html>

@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/jpg" href="{{ asset('icon/beer.jpg') }}">
-    <link rel="stylesheet" href="{{ asset('css/soreim.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tkme.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>{{ config('app.name') }}</title>
 </head>
 <body>
-    <span class="fooldalspan"><a href="{{ url('/') }}">Főoldal</a></span>
+    <span hidden class="fooldalspan"><a href="{{ url('/') }}">Főoldal</a></span>
+    <div hidden>
     <fieldset id="sorok">
         <legend>Komlók</legend>
         <table id="tabla">
@@ -49,6 +51,10 @@
                 <td class="sortipusok"><i>A Styrian Golding vagy más néven Savinjski Golding egy tradicionális szlovén aroma komló, amit eredetileg a Fuggle-ből tenyésztettek ki még a 19. század elején. Aromái talán kifinomultabbak mint a Fuggle-é és többek olyan karakterek egyesülnek benne, mint a zöld tea, citrus és gyógynövény.</i></td>
             </tr>
         </table>   
-    </fieldset> <br>
+    </fieldset> 
+    </div>
+    <br>
+
+    <script src="{{ asset('js/komlok.js')}}"></script>
 </body>
 </html>
